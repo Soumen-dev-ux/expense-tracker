@@ -2,9 +2,13 @@ import { useSelector } from "react-redux";
 import ExpenseCard from "./ExpenseCard";
 
 function ExpenseList() {
-  const expenses = useSelector((state) => state.expenses.expenses);
+  const { expenses, search } = useSelector((state) => state.expenses);
 
-  if (expenses.length === 0) {
+  const filteredExpenses = expenses.filter((expense) =>
+    expense.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  if (filteredExpenses.length === 0) {
     return <h3>No Expenses Found</h3>;
   }
 
@@ -12,7 +16,7 @@ function ExpenseList() {
     <div>
       <h2>Expense List</h2>
 
-      {expenses.map((expense) => (
+      {filteredExpenses.map((expense) => (
         <ExpenseCard
           key={expense.id}
           expense={expense}

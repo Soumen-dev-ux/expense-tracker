@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const initialState = {
   expenses: [],
   editingExpense: null,
+  search: "",
 };
 
 const expenseSlice = createSlice({
@@ -38,8 +39,12 @@ const expenseSlice = createSlice({
 
         state.editingExpense = null;
     },
+
+    setSearch: (state, action) => {
+        state.search = action.payload;
+    }
   },
 });
 
-export const { addExpense, deleteExpense, setEditingExpense, updateExpense } = expenseSlice.actions;
+export const { addExpense, deleteExpense, setEditingExpense, updateExpense, setSearch } = expenseSlice.actions;
 export default expenseSlice.reducer;
