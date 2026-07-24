@@ -5,6 +5,7 @@ const initialState = {
   expenses: [],
   editingExpense: null,
   search: "",
+  filter: "All"
 };
 
 const expenseSlice = createSlice({
@@ -42,9 +43,13 @@ const expenseSlice = createSlice({
 
     setSearch: (state, action) => {
         state.search = action.payload;
+    },
+
+    setFilter: (state, action) => {
+        state.filter = action.payload;
     }
   },
 });
 
-export const { addExpense, deleteExpense, setEditingExpense, updateExpense, setSearch } = expenseSlice.actions;
+export const { addExpense, deleteExpense, setEditingExpense, updateExpense, setSearch, setFilter } = expenseSlice.actions;
 export default expenseSlice.reducer;

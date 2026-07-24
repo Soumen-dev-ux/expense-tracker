@@ -2,6 +2,8 @@ import ExpenseForm from "../components/ExpenseForm";
 import ExpenseList from "../components/ExpenseList";
 import SearchBar from "../components/SearchBar";
 import Summary from "../components/Summary";
+import Filter from "../components/Filter";
+
 
 function Home() {
     return(
@@ -10,6 +12,7 @@ function Home() {
             <Summary />
             <ExpenseForm />
             <SearchBar />
+            <Filter />
             <ExpenseList />
         </div>
     );

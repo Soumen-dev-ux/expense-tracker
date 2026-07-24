@@ -2,11 +2,13 @@ import { useSelector } from "react-redux";
 import ExpenseCard from "./ExpenseCard";
 
 function ExpenseList() {
-  const { expenses, search } = useSelector((state) => state.expenses);
+  const { expenses, search, filter } = useSelector((state) => state.expenses);
 
-  const filteredExpenses = expenses.filter((expense) =>
-    expense.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredExpenses = expenses.filter((expense) => {
+    const matchesSearch = expense.title.toLowerCase().includes(search.toLowerCase());
+    const matchesFilter = filter === "All" || expense.category === filter;
+    return matchesSearch && matchesFilter;
+  });
 
   if (filteredExpenses.length === 0) {
     return <h3>No Expenses Found</h3>;
