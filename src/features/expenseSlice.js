@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
+const savedExpenses = JSON.parse(localStorage.getItem("expenses") || "[]");
+
 const initialState = {
-  expenses: [],
+  expenses: savedExpenses,
   editingExpense: null,
   search: "",
   filter: "All"
@@ -17,12 +19,14 @@ const expenseSlice = createSlice({
         id: uuidv4(),
         ...action.payload,
       });
+      localStorage.setItem("expenses", JSON.stringify(state.expenses));
     },
 
     deleteExpense: (state, action) => {
       state.expenses = state.expenses.filter(
         (expense) => expense.id !== action.payload
       );
+      localStorage.setItem("expenses", JSON.stringify(state.expenses));
     },
 
     setEditingExpense: (state, action) => {
@@ -39,6 +43,7 @@ const expenseSlice = createSlice({
         }
 
         state.editingExpense = null;
+        localStorage.setItem("expenses", JSON.stringify(state.expenses));
     },
 
     setSearch: (state, action) => {
