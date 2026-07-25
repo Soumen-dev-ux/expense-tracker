@@ -161,25 +161,6 @@ Updated UI
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots of your application here.
-
-Example:
-
-```text
-Home Page
-
-Expense Form
-
-Expense List
-
-Search & Filter
-
-Summary Dashboard
-```
-
----
 
 ## ✨ Core Features
 
