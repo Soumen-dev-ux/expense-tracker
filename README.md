@@ -268,7 +268,3 @@ GitHub: https://github.com/Soumen-dev-ux
 
 LinkedIn: https://linkedin.com/in/soumen-pore
 
-
-This project is created for learning and educational purposes.
-
-Feel free to fork, modify, and improve it.
