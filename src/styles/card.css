@@ -1,0 +1,194 @@
+.expense-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.875rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.expense-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-sm);
+}
+
+.expense-info-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.category-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.expense-item:hover .category-icon-wrapper {
+  transform: scale(1.05);
+}
+
+/* Category Icons & Tags */
+.category-icon-wrapper.food {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--cat-food);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.category-icon-wrapper.shopping {
+  background: rgba(236, 72, 153, 0.12);
+  color: var(--cat-shopping);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+.category-icon-wrapper.travel {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--cat-travel);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+.category-icon-wrapper.bills {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--cat-bills);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+.category-icon-wrapper.others {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--cat-others);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.expense-text-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.expense-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expense-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.expense-meta-dot {
+  width: 4px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.expense-category-tag {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+.expense-category-tag.food { color: var(--cat-food); }
+.expense-category-tag.shopping { color: var(--cat-shopping); }
+.expense-category-tag.travel { color: var(--cat-travel); }
+.expense-category-tag.bills { color: var(--cat-bills); }
+.expense-category-tag.others { color: var(--cat-others); }
+
+.expense-value-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+
+.expense-amount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.expense-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+}
+
+.action-btn.edit-btn:hover {
+  color: var(--cat-food);
+  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.action-btn.delete-btn:hover {
+  color: var(--danger);
+  border-color: rgba(244, 63, 94, 0.25);
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.action-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 480px) {
+  .expense-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .expense-value-group {
+    margin-left: 0;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 0.75rem;
+  }
+}
